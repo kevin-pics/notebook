@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cornell Notes - 笔记索引</title>
     <link rel="stylesheet" href="css/index.css" />
-    <link href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/locale/zh.js"></script>
@@ -29,8 +32,13 @@
                   type="text"
                   placeholder="Select Date"
                   class="date-input calendar-input"
-                  readonly />
-                <button @click="clearDateFilter" class="btn-clear-inline" v-if="selectedDate">
+                  readonly
+                />
+                <button
+                  @click="clearDateFilter"
+                  class="btn-clear-inline"
+                  v-if="selectedDate"
+                >
                   ✕
                 </button>
               </div>
@@ -38,7 +46,9 @@
             <div class="sort-control">
               <button @click="toggleSortOrder" class="btn-sort">
                 <span>Sort by Date</span>
-                <span class="sort-icon">{{ sortOrder === 'desc' ? '↓' : '↑' }}</span>
+                <span class="sort-icon"
+                  >{{ sortOrder === 'desc' ? '↓' : '↑' }}</span
+                >
               </button>
             </div>
           </div>
@@ -46,19 +56,26 @@
           <!-- Filter Info -->
           <div class="filter-info" v-if="selectedDate">
             <span>
-              {{ filteredAndSortedNotes.length }} {{ filteredAndSortedNotes.length === 1 ? 'note' : 'notes' }} on {{ selectedDate }}
+              {{ filteredAndSortedNotes.length }} {{
+              filteredAndSortedNotes.length === 1 ? 'note' : 'notes' }} on {{
+              selectedDate }}
             </span>
           </div>
           <div class="filter-info" v-else>
             <span>
-              {{ notes.length }} {{ notes.length === 1 ? 'note' : 'notes' }} in total
+              {{ notes.length }} {{ notes.length === 1 ? 'note' : 'notes' }} in
+              total
             </span>
           </div>
 
           <!-- Notes List -->
           <main class="notes-list">
             <ul class="note-items">
-              <li v-for="note in filteredAndSortedNotes" :key="note.id" class="note-item-row">
+              <li
+                v-for="note in filteredAndSortedNotes"
+                :key="note.id"
+                class="note-item-row"
+              >
                 <a :href="note.url" class="note-link">
                   <span class="note-title">{{ note.title }}</span>
                   <div class="note-meta-row">
@@ -71,7 +88,8 @@
                         v-for="(tag, index) in note.tags"
                         :key="tag"
                         v-show="index < 3"
-                        class="tag">
+                        class="tag"
+                      >
                         {{ tag }}
                       </span>
                     </span>
@@ -86,10 +104,15 @@
             <div class="summary-card">
               <p><strong>About Cornell Notes</strong></p>
               <p style="color: var(--color-slate-600); line-height: 1.6">
-                The Cornell Note-taking System is a systematic note-taking method developed by Professor Walter Pauk of Cornell University.
-                This site showcases learning notes organized using the Cornell method, covering various fields including technology, business, and language learning.
+                The Cornell Note-taking System is a systematic note-taking
+                method developed by Professor Walter Pauk of Cornell University.
+                This site showcases learning notes organized using the Cornell
+                method, covering various fields including technology, business,
+                and language learning.
               </p>
-              <p class="note">Total {{ notes.length }} notes | Last updated: {{ lastUpdate }}</p>
+              <p class="note">
+                Total {{ notes.length }} notes | Last updated: {{ lastUpdate }}
+              </p>
             </div>
           </footer>
         </div>
@@ -105,33 +128,33 @@
             notes: [
               {
                 id: 1,
-                title: '信息产业的规律性',
-                url: 'cornell/cornell-notes-it-industry-laws.html',
-                tags: ['IT行业', '商业定律', '浪潮之巅'],
-                date: '2025-10-29 17:58',
-                dateOnly: '2025-10-29'
+                title: "信息产业的规律性",
+                url: "cornell/cornell-notes-it-industry-laws.html",
+                tags: ["IT行业", "商业定律", "浪潮之巅"],
+                date: "2025-10-29 17:58",
+                dateOnly: "2025-10-29",
               },
               {
                 id: 2,
-                title: '塔拉滩光伏发电园区',
-                url: 'cornell/塔拉滩光伏发电园区.html',
-                tags: ['能源', '光伏', '青海'],
-                date: '2025-10-29 16:49',
-                dateOnly: '2025-10-29'
+                title: "塔拉滩光伏发电园区",
+                url: "cornell/塔拉滩光伏发电园区.html",
+                tags: ["能源", "光伏", "青海"],
+                date: "2025-10-29 16:49",
+                dateOnly: "2025-10-29",
               },
               {
                 id: 3,
-                title: '如何用英语思考',
-                url: 'cornell/如何用英语思考_Cornell_Notes-.html',
-                tags: ['语言学习', '英语', '学习方法'],
-                date: '2025-10-29 16:56',
-                dateOnly: '2025-10-29'
-              }
+                title: "如何用英语思考",
+                url: "cornell/如何用英语思考_Cornell_Notes-.html",
+                tags: ["语言学习", "英语", "学习方法"],
+                date: "2025-10-29 16:56",
+                dateOnly: "2025-10-29",
+              },
             ],
-            lastUpdate: '2025-10-29',
-            sortOrder: 'desc', // 'desc' for descending, 'asc' for ascending
-            selectedDate: '',
-            datepickerInstance: null
+            lastUpdate: "2025-10-29",
+            sortOrder: "desc", // 'desc' for descending, 'asc' for ascending
+            selectedDate: "",
+            datepickerInstance: null,
           };
         },
         computed: {
@@ -140,14 +163,14 @@
 
             // Apply date filter
             if (this.selectedDate) {
-              result = result.filter(note => {
+              result = result.filter((note) => {
                 return note.dateOnly === this.selectedDate;
               });
             }
 
             // Apply sorting
             result.sort((a, b) => {
-              if (this.sortOrder === 'desc') {
+              if (this.sortOrder === "desc") {
                 return b.date.localeCompare(a.date);
               } else {
                 return a.date.localeCompare(b.date);
@@ -155,14 +178,14 @@
             });
 
             return result;
-          }
+          },
         },
         methods: {
           toggleSortOrder() {
-            this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
+            this.sortOrder = this.sortOrder === "desc" ? "asc" : "desc";
           },
           clearDateFilter() {
-            this.selectedDate = '';
+            this.selectedDate = "";
             if (this.datepickerInstance) {
               this.datepickerInstance.clear();
             }
@@ -174,26 +197,60 @@
 
               this.datepickerInstance = new AirDatepicker(input, {
                 locale: {
-                  days: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-                  daysShort: ['日', '一', '二', '三', '四', '五', '六'],
-                  daysMin: ['日', '一', '二', '三', '四', '五', '六'],
-                  months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-                  monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                  today: '今天',
-                  clear: '清除',
-                  dateFormat: 'yyyy-MM-dd',
-                  timeFormat: 'HH:mm',
-                  firstDay: 1
+                  days: [
+                    "周日",
+                    "周一",
+                    "周二",
+                    "周三",
+                    "周四",
+                    "周五",
+                    "周六",
+                  ],
+                  daysShort: ["日", "一", "二", "三", "四", "五", "六"],
+                  daysMin: ["日", "一", "二", "三", "四", "五", "六"],
+                  months: [
+                    "一月",
+                    "二月",
+                    "三月",
+                    "四月",
+                    "五月",
+                    "六月",
+                    "七月",
+                    "八月",
+                    "九月",
+                    "十月",
+                    "十一月",
+                    "十二月",
+                  ],
+                  monthsShort: [
+                    "1月",
+                    "2月",
+                    "3月",
+                    "4月",
+                    "5月",
+                    "6月",
+                    "7月",
+                    "8月",
+                    "9月",
+                    "10月",
+                    "11月",
+                    "12月",
+                  ],
+                  today: "今天",
+                  clear: "清除",
+                  dateFormat: "yyyy-MM-dd",
+                  timeFormat: "HH:mm",
+                  firstDay: 1,
                 },
-                dateFormat: 'yyyy-MM-dd',
-                position: 'bottom left',
+                dateFormat: "yyyy-MM-dd",
+                position: "bottom left",
                 autoClose: true,
-                onSelect: ({date, formattedDate}) => {
+                onSelect: ({ date, formattedDate }) => {
                   this.selectedDate = formattedDate;
-                }
+                },
               });
             });
-          }
+          },
         },
         mounted() {
           this.initDatepicker();
@@ -202,8 +259,8 @@
           if (this.datepickerInstance) {
             this.datepickerInstance.destroy();
           }
-        }
-      }).mount('#app');
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>

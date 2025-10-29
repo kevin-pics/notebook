@@ -1,712 +1,856 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>塔拉滩光伏发电园区 - Cornell笔记</title>
-  <style>
-/* Cornell Notes - Generic Styles */
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>塔拉滩光伏发电园区 - Cornell笔记</title>
+    <style>
+      /* Cornell Notes - Generic Styles */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-:root {
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
-  
-  --color-indigo-50: #eef2ff;
-  --color-indigo-200: #c7d2fe;
-  --color-indigo-400: #818cf8;
-  --color-indigo-500: #6366f1;
-  --color-indigo-600: #4f46e5;
-  --color-indigo-800: #3730a3;
+      :root {
+        --color-slate-50: #f8fafc;
+        --color-slate-100: #f1f5f9;
+        --color-slate-200: #e2e8f0;
+        --color-slate-600: #475569;
+        --color-slate-700: #334155;
+        --color-slate-800: #1e293b;
+        --color-slate-900: #0f172a;
 
-  --color-purple-600: #9333ea;
-  --color-purple-700: #7e22ce;
+        --color-indigo-50: #eef2ff;
+        --color-indigo-200: #c7d2fe;
+        --color-indigo-400: #818cf8;
+        --color-indigo-500: #6366f1;
+        --color-indigo-600: #4f46e5;
+        --color-indigo-800: #3730a3;
 
-  --color-yellow-200-t: rgba(254, 240, 138, 0.6);
-  --color-yellow-900: #713f12;
-  
-  --color-red-50: #fef2f2;
-  --color-red-400: #f87171;
-  --color-red-800: #991b1b;
-}
+        --color-purple-600: #9333ea;
+        --color-purple-700: #7e22ce;
 
-body {
-  background-color: var(--color-slate-200);
-  color: var(--color-slate-800);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-}
+        --color-yellow-200-t: rgba(254, 240, 138, 0.6);
+        --color-yellow-900: #713f12;
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-slate-100); }
-::-webkit-scrollbar-thumb { background: var(--color-indigo-500); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-indigo-600); }
+        --color-red-50: #fef2f2;
+        --color-red-400: #f87171;
+        --color-red-800: #991b1b;
+      }
 
-/* Page Layout */
-.page-wrapper {
-  min-height: 100vh;
-  padding: 0;
-}
+      body {
+        background-color: var(--color-slate-200);
+        color: var(--color-slate-800);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          "Noto Sans",
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+      }
 
-.content-container {
-  max-width: 64rem; 
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border-radius: 0; 
-  overflow: hidden;
-}
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-slate-100);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-indigo-500);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-indigo-600);
+      }
 
-/* Header */
-.page-header {
-  background-image: linear-gradient(to bottom right, var(--color-indigo-600), var(--color-purple-700));
-  color: white; 
-  padding: 2rem; 
-  text-align: center;
-}
+      /* Page Layout */
+      .page-wrapper {
+        min-height: 100vh;
+        padding: 0;
+      }
 
-.page-header h1 {
-  font-size: 2.25rem; 
-  font-weight: 800; 
-  letter-spacing: -0.025em;
-  margin: 0 0 0.5rem 0;
-}
+      .content-container {
+        max-width: 64rem;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-radius: 0;
+        overflow: hidden;
+      }
 
-.page-header p {
-  color: var(--color-indigo-200); 
-  font-size: 1.125rem;
-  margin: 0;
-}
+      /* Header */
+      .page-header {
+        background-image: linear-gradient(
+          to bottom right,
+          var(--color-indigo-600),
+          var(--color-purple-700)
+        );
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
 
-/* Main Content */
-.main-content > section:not(:first-child) {
-  border-top: 1px solid var(--color-slate-200);
-}
+      .page-header h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin: 0 0 0.5rem 0;
+      }
 
-/* Cornell Note Section - Two Column Layout */
-.note-section {
-  display: flex; 
-  flex-direction: column;
-}
+      .page-header p {
+        color: var(--color-indigo-200);
+        font-size: 1.125rem;
+        margin: 0;
+      }
 
-/* Left Sidebar - Cue Column */
-.note-sidebar {
-  width: 100%; 
-  background-color: var(--color-slate-50);
-}
+      /* Main Content */
+      .main-content > section:not(:first-child) {
+        border-top: 1px solid var(--color-slate-200);
+      }
 
-.sidebar-sticky-wrapper {
-  position: sticky; 
-  top: 0; 
-  padding: 1.5rem;
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center;
-  transition: transform 0.3s ease-in-out;
-}
+      /* Cornell Note Section - Two Column Layout */
+      .note-section {
+        display: flex;
+        flex-direction: column;
+      }
 
-.sidebar-sticky-wrapper:hover {
-  transform: scale(1.05);
-}
+      /* Left Sidebar - Cue Column */
+      .note-sidebar {
+        width: 100%;
+        background-color: var(--color-slate-50);
+      }
 
-.sidebar-card {
-  background-image: linear-gradient(to bottom right, var(--color-indigo-500), var(--color-purple-600));
-  color: white; 
-  padding: 1.5rem; 
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
+      .sidebar-sticky-wrapper {
+        position: sticky;
+        top: 0;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+      }
 
-.sidebar-card-question {
-  font-size: 1.5rem; 
-  font-weight: 700;
-  display: flex; 
-  align-items: center; 
-  gap: 0.75rem;
-  margin: 0 0 0.25rem 0;
-}
+      .sidebar-sticky-wrapper:hover {
+        transform: scale(1.05);
+      }
 
-.sidebar-card-tags {
-  color: var(--color-indigo-200); 
-  margin: 0;
-}
+      .sidebar-card {
+        background-image: linear-gradient(
+          to bottom right,
+          var(--color-indigo-500),
+          var(--color-purple-600)
+        );
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
 
-/* Right Article - Notes Column */
-.note-article {
-  width: 100%; 
-  padding: 1.5rem;
-}
+      .sidebar-card-question {
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 0.25rem 0;
+      }
 
-.note-article h2 {
-  font-size: 1.875rem; 
-  line-height: 2.25rem; 
-  font-weight: 700;
-  color: var(--color-slate-900); 
-  margin: 0 0 1rem 0;
-  display: flex; 
-  align-items: center; 
-  gap: 0.75rem;
-}
+      .sidebar-card-tags {
+        color: var(--color-indigo-200);
+        margin: 0;
+      }
 
-.note-article h3 {
-  font-size: 1.125rem; 
-  font-weight: 600; 
-  margin: 1rem 0 0.5rem 0; 
-  color: var(--color-slate-800);
-}
+      /* Right Article - Notes Column */
+      .note-article {
+        width: 100%;
+        padding: 1.5rem;
+      }
 
-.note-article h4 {
-  font-weight: 700; 
-  color: var(--color-indigo-600);
-  margin: 0.5rem 0 0.25rem 0;
-}
+      .note-article h2 {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+        font-weight: 700;
+        color: var(--color-slate-900);
+        margin: 0 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
 
-.note-article p {
-  margin: 0 0 1rem 0;
-  color: var(--color-slate-600);
-  line-height: 1.6;
-}
+      .note-article h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin: 1rem 0 0.5rem 0;
+        color: var(--color-slate-800);
+      }
 
-.note-article ul {
-  margin: 0.5rem 0 1rem 0;
-  padding-left: 1.625em;
-  color: var(--color-slate-600);
-}
+      .note-article h4 {
+        font-weight: 700;
+        color: var(--color-indigo-600);
+        margin: 0.5rem 0 0.25rem 0;
+      }
 
-.note-article li {
-  margin: 0.5em 0;
-  line-height: 1.5;
-}
+      .note-article p {
+        margin: 0 0 1rem 0;
+        color: var(--color-slate-600);
+        line-height: 1.6;
+      }
 
-.note-article ol {
-  margin: 0.5rem 0 1rem 0;
-  padding-left: 1.625em;
-  color: var(--color-slate-600);
-}
+      .note-article ul {
+        margin: 0.5rem 0 1rem 0;
+        padding-left: 1.625em;
+        color: var(--color-slate-600);
+      }
 
-.note-article strong {
-  font-weight: 600;
-  color: var(--color-slate-700);
-}
+      .note-article li {
+        margin: 0.5em 0;
+        line-height: 1.5;
+      }
 
-/* Grid Layout */
-.grid-2 {
-  display: grid; 
-  gap: 1rem;
-  margin: 1rem 0;
-}
+      .note-article ol {
+        margin: 0.5rem 0 1rem 0;
+        padding-left: 1.625em;
+        color: var(--color-slate-600);
+      }
 
-.grid-2 > .card {
-  margin-bottom: 0;
-}
+      .note-article strong {
+        font-weight: 600;
+        color: var(--color-slate-700);
+      }
 
-/* Card Component */
-.card {
-  border: 1px solid var(--color-slate-200); 
-  border-radius: 0.5rem; 
-  padding: 1rem;
-  background-color: white;
-  margin-bottom: 1.0rem;
-}
+      /* Grid Layout */
+      .grid-2 {
+        display: grid;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
 
-.card h4 {
-  margin-top: 0;
-}
+      .grid-2 > .card {
+        margin-bottom: 0;
+      }
 
-.card ul {
-  list-style: disc inside; 
-  margin: 0.5rem 0 0 0;
-  padding: 0;
-  font-size: 0.875rem;
-}
+      /* Card Component */
+      .card {
+        border: 1px solid var(--color-slate-200);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        background-color: white;
+        margin-bottom: 1rem;
+      }
 
-.card ul li:not(:first-child) { 
-  margin-top: 0.25rem; 
-}
+      .card h4 {
+        margin-top: 0;
+      }
 
-/* Alert Components */
-.alert {
-  display: flex; 
-  padding: 1rem;
-  margin: 1rem 0; 
-  border-radius: 0 0.5rem 0.5rem 0;
-  align-items: flex-start;
-}
+      .card ul {
+        list-style: disc inside;
+        margin: 0.5rem 0 0 0;
+        padding: 0;
+        font-size: 0.875rem;
+      }
 
-.alert-info {
-  background-color: var(--color-indigo-50);
-  border-left: 4px solid var(--color-indigo-400); 
-  color: var(--color-indigo-800);
-}
+      .card ul li:not(:first-child) {
+        margin-top: 0.25rem;
+      }
 
-.alert-danger {
-  background-color: var(--color-red-50);
-  border-left: 4px solid var(--color-red-400); 
-  color: var(--color-red-800);
-}
+      /* Alert Components */
+      .alert {
+        display: flex;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0 0.5rem 0.5rem 0;
+        align-items: flex-start;
+      }
 
-.alert-icon {
-  flex-shrink: 0;
-  margin-top: 0.125rem;
-}
+      .alert-info {
+        background-color: var(--color-indigo-50);
+        border-left: 4px solid var(--color-indigo-400);
+        color: var(--color-indigo-800);
+      }
 
-.alert-icon svg {
-  height: 1.25rem; 
-  width: 1.25rem;
-}
+      .alert-danger {
+        background-color: var(--color-red-50);
+        border-left: 4px solid var(--color-red-400);
+        color: var(--color-red-800);
+      }
 
-.alert-info .alert-icon svg { 
-  color: var(--color-indigo-400); 
-}
+      .alert-icon {
+        flex-shrink: 0;
+        margin-top: 0.125rem;
+      }
 
-.alert-danger .alert-icon svg { 
-  color: var(--color-red-400); 
-}
+      .alert-icon svg {
+        height: 1.25rem;
+        width: 1.25rem;
+      }
 
-.alert-content {
-  margin-left: 0.75rem; 
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
+      .alert-info .alert-icon svg {
+        color: var(--color-indigo-400);
+      }
 
-.alert-content strong {
-  font-weight: 600;
-}
+      .alert-danger .alert-icon svg {
+        color: var(--color-red-400);
+      }
 
-/* Blockquote */
-blockquote {
-  margin: 1rem 0; 
-  padding: 1rem; 
-  font-style: italic;
-  border-left: 4px solid var(--color-indigo-500);
-  background-color: var(--color-slate-50);
-  color: var(--color-slate-600);
-}
+      .alert-content {
+        margin-left: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
 
-blockquote strong {
-  font-style: normal;
-  color: var(--color-slate-700);
-}
+      .alert-content strong {
+        font-weight: 600;
+      }
 
-/* Highlight Text */
-.highlight {
-  background-color: var(--color-yellow-200-t);
-  padding: 0.125rem 0.25rem; 
-  border-radius: 0.375rem;
-  font-weight: 600; 
-  color: var(--color-yellow-900);
-}
+      /* Blockquote */
+      blockquote {
+        margin: 1rem 0;
+        padding: 1rem;
+        font-style: italic;
+        border-left: 4px solid var(--color-indigo-500);
+        background-color: var(--color-slate-50);
+        color: var(--color-slate-600);
+      }
 
-/* Emphasis Text */
-.emphasis {
-  font-weight: 600; 
-  color: var(--color-slate-700);
-}
+      blockquote strong {
+        font-style: normal;
+        color: var(--color-slate-700);
+      }
 
-/* Footer - Summary Section */
-.page-footer {
-  background-color: var(--color-slate-100); 
-  padding: 1.5rem;
-}
+      /* Highlight Text */
+      .highlight {
+        background-color: var(--color-yellow-200-t);
+        padding: 0.125rem 0.25rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        color: var(--color-yellow-900);
+      }
 
-.summary-card {
-  background-color: white; 
-  padding: 1.5rem; 
-  border-radius: 0.5rem;
-  border-left: 4px solid var(--color-indigo-500);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+      /* Emphasis Text */
+      .emphasis {
+        font-weight: 600;
+        color: var(--color-slate-700);
+      }
 
-.summary-card > p:first-child {
-  margin: 0 0 1rem 0;
-  font-weight: 600; 
-  color: var(--color-slate-700);
-}
+      /* Footer - Summary Section */
+      .page-footer {
+        background-color: var(--color-slate-100);
+        padding: 1.5rem;
+      }
 
-.summary-card > p:first-child strong {
-  color: var(--color-slate-800);
-}
+      .summary-card {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        border-left: 4px solid var(--color-indigo-500);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
 
-.summary-card h4 {
-  font-weight: 700; 
-  color: var(--color-slate-800); 
-  margin: 1rem 0 0.5rem 0;
-}
+      .summary-card > p:first-child {
+        margin: 0 0 1rem 0;
+        font-weight: 600;
+        color: var(--color-slate-700);
+      }
 
-.summary-card h4:first-of-type {
-  margin-top: 0;
-}
+      .summary-card > p:first-child strong {
+        color: var(--color-slate-800);
+      }
 
-.summary-card ul {
-  list-style: disc inside; 
-  margin: 0 0 1rem 0;
-  padding: 0;
-  color: var(--color-slate-600);
-}
+      .summary-card h4 {
+        font-weight: 700;
+        color: var(--color-slate-800);
+        margin: 1rem 0 0.5rem 0;
+      }
 
-.summary-card ul li:not(:first-child) {
-  margin-top: 0.5rem;
-}
+      .summary-card h4:first-of-type {
+        margin-top: 0;
+      }
 
-.summary-card ul strong {
-  color: var(--color-indigo-600);
-}
+      .summary-card ul {
+        list-style: disc inside;
+        margin: 0 0 1rem 0;
+        padding: 0;
+        color: var(--color-slate-600);
+      }
 
-.summary-card .note {
-  font-size: 0.875rem; 
-  font-style: italic; 
-  color: #64748b;
-  margin: 1rem 0 0 0;
-}
+      .summary-card ul li:not(:first-child) {
+        margin-top: 0.5rem;
+      }
 
-/* Responsive Design */
-@media (min-width: 640px) {
-  .page-wrapper { padding: 1.5rem; }
-  .content-container { border-radius: 1rem; }
-  .page-header { padding: 3rem; }
-  .page-header h1 { font-size: 3rem; line-height: 1; }
-  .note-article, .page-footer { padding: 2rem; }
-}
+      .summary-card ul strong {
+        color: var(--color-indigo-600);
+      }
 
-@media (min-width: 768px) {
-  .page-wrapper { padding: 2rem; }
-  .note-section { flex-direction: row; }
-  .note-sidebar { 
-    width: 33.333333%; 
-    border-right: 2px solid var(--color-slate-200); 
-    border-bottom: none;
-  }
-  .note-article { width: 66.666667%; }
-  .sidebar-sticky-wrapper { padding: 2rem; }
-  .grid-2 { grid-template-columns: repeat(2, 1fr); }
-}
+      .summary-card .note {
+        font-size: 0.875rem;
+        font-style: italic;
+        color: #64748b;
+        margin: 1rem 0 0 0;
+      }
 
-@media (min-width: 1024px) {
-  .note-article, .page-footer { padding: 2.5rem; }
-}
-  </style>
-</head>
-<body>
-  <div class="page-wrapper">
-    <div class="content-container">
-      
-      <!-- Header -->
-      <header class="page-header">
-        <h1>塔拉滩光伏发电园区</h1>
-        <p>沙漠变绿洲：光伏发电与生态修复的意外奇迹</p>
-      </header>
+      /* Responsive Design */
+      @media (min-width: 640px) {
+        .page-wrapper {
+          padding: 1.5rem;
+        }
+        .content-container {
+          border-radius: 1rem;
+        }
+        .page-header {
+          padding: 3rem;
+        }
+        .page-header h1 {
+          font-size: 3rem;
+          line-height: 1;
+        }
+        .note-article,
+        .page-footer {
+          padding: 2rem;
+        }
+      }
 
-      <!-- Main Content -->
-      <main class="main-content">
-        
-        <!-- Note Section 1 -->
-        <section class="note-section">
-          <aside class="note-sidebar">
-            <div class="sidebar-sticky-wrapper">
-              <div class="sidebar-card">
-                <h3 class="sidebar-card-question">
-                  <span>❓</span>
-                  项目背景
-                </h3>
-                <p class="sidebar-card-tags">地理位置 | 初衷 | 挑战</p>
+      @media (min-width: 768px) {
+        .page-wrapper {
+          padding: 2rem;
+        }
+        .note-section {
+          flex-direction: row;
+        }
+        .note-sidebar {
+          width: 33.333333%;
+          border-right: 2px solid var(--color-slate-200);
+          border-bottom: none;
+        }
+        .note-article {
+          width: 66.666667%;
+        }
+        .sidebar-sticky-wrapper {
+          padding: 2rem;
+        }
+        .grid-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .note-article,
+        .page-footer {
+          padding: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="content-container">
+        <!-- Header -->
+        <header class="page-header">
+          <h1>塔拉滩光伏发电园区</h1>
+          <p>沙漠变绿洲：光伏发电与生态修复的意外奇迹</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Note Section 1 -->
+          <section class="note-section">
+            <aside class="note-sidebar">
+              <div class="sidebar-sticky-wrapper">
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-question">
+                    <span>❓</span>
+                    项目背景
+                  </h3>
+                  <p class="sidebar-card-tags">地理位置 | 初衷 | 挑战</p>
+                </div>
               </div>
-            </div>
-          </aside>
-          
-          <article class="note-article">
-            <h2>
-              <span>📍</span>
-              塔拉滩的地理环境与项目起源
-            </h2>
-            
-            <h3>塔拉滩的自然条件</h3>
-            <p><strong>塔拉滩</strong>位于青海省共和县，在蒙古语中意为"荒滩"。这里自古以来就是典型的荒漠化地区，具有以下特点：</p>
-            <ul>
-              <li><span class="highlight">荒漠化率高达98.5%</span>，是极度恶劣的生态环境</li>
-              <li>风大沙多，寸草难生，当地有"上去了塔拉，儿子认不得达达"的说法</li>
-              <li>海拔高、日照时间长，年日照时间充足</li>
-            </ul>
+            </aside>
 
-            <h3>为何选择塔拉滩</h3>
-            <p>尽管环境恶劣，国家电网却相中了这片土地，原因在于：</p>
-            <ul>
-              <li><strong>地理优势</strong>：海拔高、日照长，是理想的光伏发电场所</li>
-              <li><strong>战略目标</strong>：计划建设全国最大的光伏发电园区</li>
-              <li><strong>土地资源</strong>：荒漠土地利用成本低，不占用耕地</li>
-            </ul>
+            <article class="note-article">
+              <h2>
+                <span>📍</span>
+                塔拉滩的地理环境与项目起源
+              </h2>
 
-            <div class="alert alert-info">
-              <div class="alert-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <div class="alert-content">
-                <strong>项目启动时间：</strong>2011年，光伏板开始在塔拉滩立起，投资规模达到3亿元人民币。
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- Note Section 2 -->
-        <section class="note-section">
-          <aside class="note-sidebar">
-            <div class="sidebar-sticky-wrapper">
-              <div class="sidebar-card">
-                <h3 class="sidebar-card-question">
-                  <span>🌱</span>
-                  意外发现
-                </h3>
-                <p class="sidebar-card-tags">生态变化 | 科学原理 | 挑战</p>
-              </div>
-            </div>
-          </aside>
-          
-          <article class="note-article">
-            <h2>
-              <span>🔬</span>
-              沙漠长草的意外生态效应
-            </h2>
-            
-            <h3>意外的绿化现象</h3>
-            <p>2011年光伏板安装完成后，工程师们发现了一个意想不到的现象：<span class="emphasis">塔拉滩开始长草了</span>。</p>
-
-            <blockquote>
-              <strong>时间线：</strong>起初只是零零星星，后来竟绿成一片。三年过去，植被覆盖率从接近0%飙升到<strong>80%</strong>。
-            </blockquote>
-
-            <h3>科学原理分析</h3>
-            <p>光伏板意外地创造了适合植物生长的微环境：</p>
-            
-            <div class="grid-2">
-              <div class="card">
-                <h4>🛡️ 物理屏障作用</h4>
-                <ul>
-                  <li>光伏板挡风遮阳，减少水分蒸发</li>
-                  <li>降低地表温度，改善微气候</li>
-                  <li>减少风蚀，保护土壤</li>
-                </ul>
-              </div>
-              
-              <div class="card">
-                <h4>💧 水资源循环</h4>
-                <ul>
-                  <li>清洗光伏板的水流到地上</li>
-                  <li>无意中浇灌了草地</li>
-                  <li>形成稳定的水分供应</li>
-                </ul>
-              </div>
-            </div>
-
-            <h3>新的挑战出现</h3>
-            <p>植被快速生长虽然是好事，但也带来了新的运营问题：</p>
-            <ul>
-              <li><strong>遮光问题</strong>：草长得太高会遮挡阳光，影响发电效率</li>
-              <li><strong>火灾隐患</strong>：秋冬季节干燥，枯草容易引发火灾</li>
-              <li><strong>维护成本</strong>：人工割草需要大量人力和资金投入</li>
-            </ul>
-
-            <div class="alert alert-danger">
-              <div class="alert-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                </svg>
-              </div>
-              <div class="alert-content">
-                <strong>运营困境：</strong>割草成本高昂，每年需要投入大量资金进行植被管理，成为园区运营的一大负担。
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- Note Section 3 -->
-        <section class="note-section">
-          <aside class="note-sidebar">
-            <div class="sidebar-sticky-wrapper">
-              <div class="sidebar-card">
-                <h3 class="sidebar-card-question">
-                  <span>🐑</span>
-                  创新方案
-                </h3>
-                <p class="sidebar-card-tags">光伏羊 | 共生模式 | 效益</p>
-              </div>
-            </div>
-          </aside>
-          
-          <article class="note-article">
-            <h2>
-              <span>💡</span>
-              "光伏羊"的诞生：一个灵机一动的创新
-            </h2>
-            
-            <h3>灵感来源</h3>
-            <p>解决方案来自一个偶然的发现：一位牧民来帮忙割草时，顺便带来了家里的羊。<span class="highlight">羊把该割的草全吃了，甚至吃得比人割得还干净</span>。</p>
-
-            <blockquote>
-              <strong>关键转折：</strong>"与其雇人除草，不如请羊师傅进来吃饱。" 这一句话点亮了塔拉滩的创新之路。
-            </blockquote>
-
-            <h3>光伏羊模式的实施（2018年）</h3>
-            <p>光伏园区决定开放免费放牧，并对设施进行了适应性改造：</p>
-            
-            <div class="card">
-              <h4>🔧 园区改造措施</h4>
+              <h3>塔拉滩的自然条件</h3>
+              <p>
+                <strong>塔拉滩</strong
+                >位于青海省共和县，在蒙古语中意为"荒滩"。这里自古以来就是典型的荒漠化地区，具有以下特点：
+              </p>
               <ul>
-                <li><strong>扩大间距</strong>：光伏板间距从3米扩大到5米</li>
-                <li><strong>提高高度</strong>：光伏板高度从1.5米提高到1.8米</li>
-                <li><strong>活动空间</strong>：确保羊群有充足的活动空间</li>
-                <li><strong>发电保障</strong>：改造不影响发电效率</li>
+                <li>
+                  <span class="highlight">荒漠化率高达98.5%</span
+                  >，是极度恶劣的生态环境
+                </li>
+                <li>
+                  风大沙多，寸草难生，当地有"上去了塔拉，儿子认不得达达"的说法
+                </li>
+                <li>海拔高、日照时间长，年日照时间充足</li>
               </ul>
-            </div>
 
-            <h3>多赢的生态经济模式</h3>
-            <p>光伏羊模式创造了显著的综合效益：</p>
-            
-            <div class="grid-2">
-              <div class="card">
-                <h4>🏭 园区收益</h4>
-                <ul>
-                  <li>每年省下720万元饲料成本</li>
-                  <li>零成本解决植被管理问题</li>
-                  <li>消除火灾隐患</li>
-                  <li>维持生态平衡</li>
-                </ul>
-              </div>
-              
-              <div class="card">
-                <h4>🧑‍🌾 牧民受益</h4>
-                <ul>
-                  <li>6330户牧民获得收入</li>
-                  <li>羊肉质更佳，市场价翻倍</li>
-                  <li>零成本获得优质牧场</li>
-                  <li>羊群规模扩大</li>
-                </ul>
-              </div>
-            </div>
-
-            <h3>光伏羊的市场优势</h3>
-            <p><strong>"光伏羊"</strong>因其独特的养殖环境而获得了市场认可：</p>
-            <ul>
-              <li>板下牧草又嫩又密，营养价值高</li>
-              <li>羊群吃得好，肉质更优</li>
-              <li>市场价格翻了一倍</li>
-              <li>名气甚至超过了园区本身</li>
-            </ul>
-
-            <div class="alert alert-info">
-              <div class="alert-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                </svg>
-              </div>
-              <div class="alert-content">
-                <strong>规模数据：</strong>短短几年间，塔拉滩的光伏羊从600只暴增到<strong>2万只</strong>，形成了可持续的生态循环。
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- Note Section 4 -->
-        <section class="note-section">
-          <aside class="note-sidebar">
-            <div class="sidebar-sticky-wrapper">
-              <div class="sidebar-card">
-                <h3 class="sidebar-card-question">
-                  <span>🌍</span>
-                  国际影响
-                </h3>
-                <p class="sidebar-card-tags">规模 | 成就 | 示范效应</p>
-              </div>
-            </div>
-          </aside>
-          
-          <article class="note-article">
-            <h2>
-              <span>🏆</span>
-              塔拉滩的今天：全球最大光伏园区
-            </h2>
-            
-            <h3>当前规模与成就</h3>
-            <p>经过十多年的发展，塔拉滩光伏园区已经成为世界级的清洁能源基地：</p>
-            
-            <ul>
-              <li><strong>园区面积</strong>：已扩建至<span class="highlight">609平方公里</span>，接近一个新加坡的面积</li>
-              <li><strong>发电能力</strong>：每年能为500万人提供清洁能源</li>
-              <li><strong>全球地位</strong>：成为全球最大的光伏发电园区</li>
-              <li><strong>生态转变</strong>：从"地上不见草，风来石头跑"到"风吹草地见牛羊"</li>
-            </ul>
-
-            <h3>国际影响与示范效应</h3>
-            <p>塔拉滩模式吸引了全球关注，多个国家前来学习经验：</p>
-            
-            <div class="card">
-              <h4>🌏 国际交流</h4>
+              <h3>为何选择塔拉滩</h3>
+              <p>尽管环境恶劣，国家电网却相中了这片土地，原因在于：</p>
               <ul>
-                <li>外国专家纷纷前来考察学习</li>
-                <li>经验被带回美国、英国、奥地利等国</li>
-                <li>为全球荒漠化治理提供了新思路</li>
-                <li>破解了让全球头痛的生态难题</li>
+                <li>
+                  <strong>地理优势</strong
+                  >：海拔高、日照长，是理想的光伏发电场所
+                </li>
+                <li>
+                  <strong>战略目标</strong>：计划建设全国最大的光伏发电园区
+                </li>
+                <li>
+                  <strong>土地资源</strong>：荒漠土地利用成本低，不占用耕地
+                </li>
               </ul>
-            </div>
 
-            <blockquote>
-              <strong>历史意义：</strong>十几年前只为发电而来的基建工程，最终演变成一场生态与能源的双向奔赴，创造了人与自然和谐共生的典范。
-            </blockquote>
+              <div class="alert alert-info">
+                <div class="alert-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <strong>项目启动时间：</strong
+                  >2011年，光伏板开始在塔拉滩立起，投资规模达到3亿元人民币。
+                </div>
+              </div>
+            </article>
+          </section>
 
-            <h3>创新精神的体现</h3>
-            <p>塔拉滩项目体现了中国科技创新的独特特点：</p>
+          <!-- Note Section 2 -->
+          <section class="note-section">
+            <aside class="note-sidebar">
+              <div class="sidebar-sticky-wrapper">
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-question">
+                    <span>🌱</span>
+                    意外发现
+                  </h3>
+                  <p class="sidebar-card-tags">生态变化 | 科学原理 | 挑战</p>
+                </div>
+              </div>
+            </aside>
+
+            <article class="note-article">
+              <h2>
+                <span>🔬</span>
+                沙漠长草的意外生态效应
+              </h2>
+
+              <h3>意外的绿化现象</h3>
+              <p>
+                2011年光伏板安装完成后，工程师们发现了一个意想不到的现象：<span
+                  class="emphasis"
+                  >塔拉滩开始长草了</span
+                >。
+              </p>
+
+              <blockquote>
+                <strong>时间线：</strong
+                >起初只是零零星星，后来竟绿成一片。三年过去，植被覆盖率从接近0%飙升到<strong>80%</strong>。
+              </blockquote>
+
+              <h3>科学原理分析</h3>
+              <p>光伏板意外地创造了适合植物生长的微环境：</p>
+
+              <div class="grid-2">
+                <div class="card">
+                  <h4>🛡️ 物理屏障作用</h4>
+                  <ul>
+                    <li>光伏板挡风遮阳，减少水分蒸发</li>
+                    <li>降低地表温度，改善微气候</li>
+                    <li>减少风蚀，保护土壤</li>
+                  </ul>
+                </div>
+
+                <div class="card">
+                  <h4>💧 水资源循环</h4>
+                  <ul>
+                    <li>清洗光伏板的水流到地上</li>
+                    <li>无意中浇灌了草地</li>
+                    <li>形成稳定的水分供应</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3>新的挑战出现</h3>
+              <p>植被快速生长虽然是好事，但也带来了新的运营问题：</p>
+              <ul>
+                <li>
+                  <strong>遮光问题</strong>：草长得太高会遮挡阳光，影响发电效率
+                </li>
+                <li>
+                  <strong>火灾隐患</strong>：秋冬季节干燥，枯草容易引发火灾
+                </li>
+                <li>
+                  <strong>维护成本</strong>：人工割草需要大量人力和资金投入
+                </li>
+              </ul>
+
+              <div class="alert alert-danger">
+                <div class="alert-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <strong>运营困境：</strong
+                  >割草成本高昂，每年需要投入大量资金进行植被管理，成为园区运营的一大负担。
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Note Section 3 -->
+          <section class="note-section">
+            <aside class="note-sidebar">
+              <div class="sidebar-sticky-wrapper">
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-question">
+                    <span>🐑</span>
+                    创新方案
+                  </h3>
+                  <p class="sidebar-card-tags">光伏羊 | 共生模式 | 效益</p>
+                </div>
+              </div>
+            </aside>
+
+            <article class="note-article">
+              <h2>
+                <span>💡</span>
+                "光伏羊"的诞生：一个灵机一动的创新
+              </h2>
+
+              <h3>灵感来源</h3>
+              <p>
+                解决方案来自一个偶然的发现：一位牧民来帮忙割草时，顺便带来了家里的羊。<span
+                  class="highlight"
+                  >羊把该割的草全吃了，甚至吃得比人割得还干净</span
+                >。
+              </p>
+
+              <blockquote>
+                <strong>关键转折：</strong
+                >"与其雇人除草，不如请羊师傅进来吃饱。"
+                这一句话点亮了塔拉滩的创新之路。
+              </blockquote>
+
+              <h3>光伏羊模式的实施（2018年）</h3>
+              <p>光伏园区决定开放免费放牧，并对设施进行了适应性改造：</p>
+
+              <div class="card">
+                <h4>🔧 园区改造措施</h4>
+                <ul>
+                  <li><strong>扩大间距</strong>：光伏板间距从3米扩大到5米</li>
+                  <li>
+                    <strong>提高高度</strong>：光伏板高度从1.5米提高到1.8米
+                  </li>
+                  <li><strong>活动空间</strong>：确保羊群有充足的活动空间</li>
+                  <li><strong>发电保障</strong>：改造不影响发电效率</li>
+                </ul>
+              </div>
+
+              <h3>多赢的生态经济模式</h3>
+              <p>光伏羊模式创造了显著的综合效益：</p>
+
+              <div class="grid-2">
+                <div class="card">
+                  <h4>🏭 园区收益</h4>
+                  <ul>
+                    <li>每年省下720万元饲料成本</li>
+                    <li>零成本解决植被管理问题</li>
+                    <li>消除火灾隐患</li>
+                    <li>维持生态平衡</li>
+                  </ul>
+                </div>
+
+                <div class="card">
+                  <h4>🧑‍🌾 牧民受益</h4>
+                  <ul>
+                    <li>6330户牧民获得收入</li>
+                    <li>羊肉质更佳，市场价翻倍</li>
+                    <li>零成本获得优质牧场</li>
+                    <li>羊群规模扩大</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3>光伏羊的市场优势</h3>
+              <p>
+                <strong>"光伏羊"</strong>因其独特的养殖环境而获得了市场认可：
+              </p>
+              <ul>
+                <li>板下牧草又嫩又密，营养价值高</li>
+                <li>羊群吃得好，肉质更优</li>
+                <li>市场价格翻了一倍</li>
+                <li>名气甚至超过了园区本身</li>
+              </ul>
+
+              <div class="alert alert-info">
+                <div class="alert-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <strong>规模数据：</strong
+                  >短短几年间，塔拉滩的光伏羊从600只暴增到<strong>2万只</strong>，形成了可持续的生态循环。
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Note Section 4 -->
+          <section class="note-section">
+            <aside class="note-sidebar">
+              <div class="sidebar-sticky-wrapper">
+                <div class="sidebar-card">
+                  <h3 class="sidebar-card-question">
+                    <span>🌍</span>
+                    国际影响
+                  </h3>
+                  <p class="sidebar-card-tags">规模 | 成就 | 示范效应</p>
+                </div>
+              </div>
+            </aside>
+
+            <article class="note-article">
+              <h2>
+                <span>🏆</span>
+                塔拉滩的今天：全球最大光伏园区
+              </h2>
+
+              <h3>当前规模与成就</h3>
+              <p>
+                经过十多年的发展，塔拉滩光伏园区已经成为世界级的清洁能源基地：
+              </p>
+
+              <ul>
+                <li>
+                  <strong>园区面积</strong>：已扩建至<span class="highlight"
+                    >609平方公里</span
+                  >，接近一个新加坡的面积
+                </li>
+                <li><strong>发电能力</strong>：每年能为500万人提供清洁能源</li>
+                <li><strong>全球地位</strong>：成为全球最大的光伏发电园区</li>
+                <li>
+                  <strong>生态转变</strong
+                  >：从"地上不见草，风来石头跑"到"风吹草地见牛羊"
+                </li>
+              </ul>
+
+              <h3>国际影响与示范效应</h3>
+              <p>塔拉滩模式吸引了全球关注，多个国家前来学习经验：</p>
+
+              <div class="card">
+                <h4>🌏 国际交流</h4>
+                <ul>
+                  <li>外国专家纷纷前来考察学习</li>
+                  <li>经验被带回美国、英国、奥地利等国</li>
+                  <li>为全球荒漠化治理提供了新思路</li>
+                  <li>破解了让全球头痛的生态难题</li>
+                </ul>
+              </div>
+
+              <blockquote>
+                <strong>历史意义：</strong
+                >十几年前只为发电而来的基建工程，最终演变成一场生态与能源的双向奔赴，创造了人与自然和谐共生的典范。
+              </blockquote>
+
+              <h3>创新精神的体现</h3>
+              <p>塔拉滩项目体现了中国科技创新的独特特点：</p>
+              <ul>
+                <li>
+                  <strong>接地气</strong>：不局限于实验室和论文，从实际问题出发
+                </li>
+                <li><strong>能落地</strong>：将理论转化为实际可行的解决方案</li>
+                <li><strong>敢试错</strong>：在实践中发现问题、解决问题</li>
+                <li><strong>综合效益</strong>：实现经济、生态、社会多重价值</li>
+              </ul>
+            </article>
+          </section>
+        </main>
+
+        <!-- Footer Summary -->
+        <footer class="page-footer">
+          <div class="summary-card">
+            <p><strong>📝 Summary 总结</strong></p>
+
+            <h4>核心成就 Key Achievements</h4>
             <ul>
-              <li><strong>接地气</strong>：不局限于实验室和论文，从实际问题出发</li>
-              <li><strong>能落地</strong>：将理论转化为实际可行的解决方案</li>
-              <li><strong>敢试错</strong>：在实践中发现问题、解决问题</li>
-              <li><strong>综合效益</strong>：实现经济、生态、社会多重价值</li>
+              <li>
+                <strong>生态修复 Ecological Restoration：</strong
+                >荒漠化率从98.5%降低，植被覆盖率达到80%，实现沙漠变绿洲
+              </li>
+              <li>
+                <strong>能源供应 Energy Supply：</strong
+                >建成全球最大光伏园区（609平方公里），每年为500万人提供清洁能源
+              </li>
+              <li>
+                <strong>创新模式 Innovation Model：</strong
+                >开创"光伏+生态+畜牧"三位一体的可持续发展模式
+              </li>
+              <li>
+                <strong>经济效益 Economic Benefits：</strong
+                >每年节省720万元成本，6330户牧民获得收入，光伏羊市场价翻倍
+              </li>
             </ul>
-          </article>
-        </section>
 
-      </main>
+            <h4>关键启示 Key Insights</h4>
+            <ul>
+              <li>
+                <strong>系统思维 Systems Thinking：</strong
+                >将单一的能源项目转化为生态-经济-社会综合系统
+              </li>
+              <li>
+                <strong>因地制宜 Local Adaptation：</strong
+                >充分利用当地资源和条件，创造性解决问题
+              </li>
+              <li>
+                <strong>多方共赢 Win-Win Solution：</strong
+                >实现企业、牧民、环境三方受益的可持续模式
+              </li>
+              <li>
+                <strong>国际示范 Global Impact：</strong
+                >为全球荒漠化治理和清洁能源发展提供中国方案
+              </li>
+            </ul>
 
-      <!-- Footer Summary -->
-      <footer class="page-footer">
-        <div class="summary-card">
-          <p><strong>📝 Summary 总结</strong></p>
-          
-          <h4>核心成就 Key Achievements</h4>
-          <ul>
-            <li><strong>生态修复 Ecological Restoration：</strong>荒漠化率从98.5%降低，植被覆盖率达到80%，实现沙漠变绿洲</li>
-            <li><strong>能源供应 Energy Supply：</strong>建成全球最大光伏园区（609平方公里），每年为500万人提供清洁能源</li>
-            <li><strong>创新模式 Innovation Model：</strong>开创"光伏+生态+畜牧"三位一体的可持续发展模式</li>
-            <li><strong>经济效益 Economic Benefits：</strong>每年节省720万元成本，6330户牧民获得收入，光伏羊市场价翻倍</li>
-          </ul>
-
-          <h4>关键启示 Key Insights</h4>
-          <ul>
-            <li><strong>系统思维 Systems Thinking：</strong>将单一的能源项目转化为生态-经济-社会综合系统</li>
-            <li><strong>因地制宜 Local Adaptation：</strong>充分利用当地资源和条件，创造性解决问题</li>
-            <li><strong>多方共赢 Win-Win Solution：</strong>实现企业、牧民、环境三方受益的可持续模式</li>
-            <li><strong>国际示范 Global Impact：</strong>为全球荒漠化治理和清洁能源发展提供中国方案</li>
-          </ul>
-
-          <p class="note">
-            塔拉滩项目证明：最好的科技创新往往来自对实际问题的深入思考和大胆实践，真正的突破不在实验室，而在田间地头。
-          </p>
-        </div>
-      </footer>
-
+            <p class="note">
+              塔拉滩项目证明：最好的科技创新往往来自对实际问题的深入思考和大胆实践，真正的突破不在实验室，而在田间地头。
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
