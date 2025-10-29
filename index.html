@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cornell Notes - 笔记索引</title>
     <link rel="stylesheet" href="css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/locale/zh.js"></script>
   </head>
   <body>
     <div id="app">
@@ -17,10 +20,45 @@
             <p>My Cornell Notes Collection</p>
           </header>
 
+          <!-- Filter and Sort Controls -->
+          <div class="filter-controls">
+            <div class="date-filter">
+              <div class="date-input-wrapper">
+                <input
+                  ref="datePicker"
+                  type="text"
+                  placeholder="Select Date"
+                  class="date-input calendar-input"
+                  readonly />
+                <button @click="clearDateFilter" class="btn-clear-inline" v-if="selectedDate">
+                  ✕
+                </button>
+              </div>
+            </div>
+            <div class="sort-control">
+              <button @click="toggleSortOrder" class="btn-sort">
+                <span>Sort by Date</span>
+                <span class="sort-icon">{{ sortOrder === 'desc' ? '↓' : '↑' }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter Info -->
+          <div class="filter-info" v-if="selectedDate">
+            <span>
+              {{ filteredAndSortedNotes.length }} {{ filteredAndSortedNotes.length === 1 ? 'note' : 'notes' }} on {{ selectedDate }}
+            </span>
+          </div>
+          <div class="filter-info" v-else>
+            <span>
+              {{ notes.length }} {{ notes.length === 1 ? 'note' : 'notes' }} in total
+            </span>
+          </div>
+
           <!-- Notes List -->
           <main class="notes-list">
             <ul class="note-items">
-              <li v-for="note in notes" :key="note.id" class="note-item-row">
+              <li v-for="note in filteredAndSortedNotes" :key="note.id" class="note-item-row">
                 <a :href="note.url" class="note-link">
                   <span class="note-title">{{ note.title }}</span>
                   <div class="note-meta-row">
@@ -90,8 +128,80 @@
                 dateOnly: '2025-10-29'
               }
             ],
-            lastUpdate: '2025-10-29'
+            lastUpdate: '2025-10-29',
+            sortOrder: 'desc', // 'desc' for descending, 'asc' for ascending
+            selectedDate: '',
+            datepickerInstance: null
           };
+        },
+        computed: {
+          filteredAndSortedNotes() {
+            let result = [...this.notes];
+
+            // Apply date filter
+            if (this.selectedDate) {
+              result = result.filter(note => {
+                return note.dateOnly === this.selectedDate;
+              });
+            }
+
+            // Apply sorting
+            result.sort((a, b) => {
+              if (this.sortOrder === 'desc') {
+                return b.date.localeCompare(a.date);
+              } else {
+                return a.date.localeCompare(b.date);
+              }
+            });
+
+            return result;
+          }
+        },
+        methods: {
+          toggleSortOrder() {
+            this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
+          },
+          clearDateFilter() {
+            this.selectedDate = '';
+            if (this.datepickerInstance) {
+              this.datepickerInstance.clear();
+            }
+          },
+          initDatepicker() {
+            this.$nextTick(() => {
+              const input = this.$refs.datePicker;
+              if (!input) return;
+
+              this.datepickerInstance = new AirDatepicker(input, {
+                locale: {
+                  days: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+                  daysShort: ['日', '一', '二', '三', '四', '五', '六'],
+                  daysMin: ['日', '一', '二', '三', '四', '五', '六'],
+                  months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                  monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                  today: '今天',
+                  clear: '清除',
+                  dateFormat: 'yyyy-MM-dd',
+                  timeFormat: 'HH:mm',
+                  firstDay: 1
+                },
+                dateFormat: 'yyyy-MM-dd',
+                position: 'bottom left',
+                autoClose: true,
+                onSelect: ({date, formattedDate}) => {
+                  this.selectedDate = formattedDate;
+                }
+              });
+            });
+          }
+        },
+        mounted() {
+          this.initDatepicker();
+        },
+        beforeUnmount() {
+          if (this.datepickerInstance) {
+            this.datepickerInstance.destroy();
+          }
         }
       }).mount('#app');
     </script>
