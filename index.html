@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cornell Notes - 笔记索引</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="page-wrapper">
+        <div class="content-container">
+          <!-- Header -->
+          <header class="page-header">
+            <h1>Cornell Notes</h1>
+            <p>My Cornell Notes Collection</p>
+          </header>
+
+          <!-- Notes List -->
+          <main class="notes-list">
+            <ul class="note-items">
+              <li v-for="note in notes" :key="note.id" class="note-item-row">
+                <a :href="note.url" class="note-link">
+                  <span class="note-title">{{ note.title }}</span>
+                  <div class="note-meta-row">
+                    <span class="note-date">
+                      <span class="date-full">{{ note.date }}</span>
+                      <span class="date-short">{{ note.dateOnly }}</span>
+                    </span>
+                    <span class="note-tags">
+                      <span
+                        v-for="(tag, index) in note.tags"
+                        :key="tag"
+                        v-show="index < 3"
+                        class="tag">
+                        {{ tag }}
+                      </span>
+                    </span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </main>
+
+          <!-- Footer -->
+          <footer class="page-footer">
+            <div class="summary-card">
+              <p><strong>About Cornell Notes</strong></p>
+              <p style="color: var(--color-slate-600); line-height: 1.6">
+                The Cornell Note-taking System is a systematic note-taking method developed by Professor Walter Pauk of Cornell University.
+                This site showcases learning notes organized using the Cornell method, covering various fields including technology, business, and language learning.
+              </p>
+              <p class="note">Total {{ notes.length }} notes | Last updated: {{ lastUpdate }}</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            notes: [
+              {
+                id: 1,
+                title: '信息产业的规律性',
+                url: 'cornell/cornell-notes-it-industry-laws.html',
+                tags: ['IT行业', '商业定律', '浪潮之巅'],
+                date: '2025-10-29 17:58',
+                dateOnly: '2025-10-29'
+              },
+              {
+                id: 2,
+                title: '塔拉滩光伏发电园区',
+                url: 'cornell/塔拉滩光伏发电园区.html',
+                tags: ['能源', '光伏', '青海'],
+                date: '2025-10-29 16:49',
+                dateOnly: '2025-10-29'
+              },
+              {
+                id: 3,
+                title: '如何用英语思考',
+                url: 'cornell/如何用英语思考_Cornell_Notes-.html',
+                tags: ['语言学习', '英语', '学习方法'],
+                date: '2025-10-29 16:56',
+                dateOnly: '2025-10-29'
+              }
+            ],
+            lastUpdate: '2025-10-29'
+          };
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>

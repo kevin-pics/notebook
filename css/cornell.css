@@ -1,0 +1,446 @@
+/* Cornell Notes - Generic Styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-indigo-50: #eef2ff;
+  --color-indigo-200: #c7d2fe;
+  --color-indigo-400: #818cf8;
+  --color-indigo-500: #6366f1;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-800: #3730a3;
+
+  --color-purple-600: #9333ea;
+  --color-purple-700: #7e22ce;
+
+  --color-yellow-200-t: rgba(254, 240, 138, 0.6);
+  --color-yellow-900: #713f12;
+
+  --color-red-50: #fef2f2;
+  --color-red-400: #f87171;
+  --color-red-800: #991b1b;
+}
+
+body {
+  background-color: var(--color-slate-200);
+  color: var(--color-slate-800);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-slate-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-indigo-500);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-indigo-600);
+}
+
+/* Page Layout */
+.page-wrapper {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.content-container {
+  max-width: 64rem;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Header */
+.page-header {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-indigo-600),
+    var(--color-purple-700)
+  );
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-header p {
+  color: var(--color-indigo-200);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* Main Content */
+.main-content > section:not(:first-child) {
+  border-top: 1px solid var(--color-slate-200);
+}
+
+/* Cornell Note Section - Two Column Layout */
+.note-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left Sidebar - Cue Column */
+.note-sidebar {
+  width: 100%;
+  background-color: var(--color-slate-50);
+}
+
+.sidebar-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-sticky-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.sidebar-card {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-indigo-500),
+    var(--color-purple-600)
+  );
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-card-question {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.sidebar-card-tags {
+  color: var(--color-indigo-200);
+  margin: 0;
+}
+
+/* Right Article - Notes Column */
+.note-article {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.note-article h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.note-article h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+  color: var(--color-slate-800);
+}
+
+.note-article h4 {
+  font-weight: 700;
+  color: var(--color-indigo-600);
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.note-article p {
+  margin: 0 0 1rem 0;
+  color: var(--color-slate-600);
+  line-height: 1.6;
+}
+
+.note-article ul {
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 1.625em;
+  color: var(--color-slate-600);
+}
+
+.note-article li {
+  margin: 0.5em 0;
+  line-height: 1.5;
+}
+
+.note-article ol {
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 1.625em;
+  color: var(--color-slate-600);
+}
+
+.note-article strong {
+  font-weight: 600;
+  color: var(--color-slate-700);
+}
+
+/* Grid Layout */
+.grid-2 {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.grid-2 > .card {
+  margin-bottom: 0;
+}
+
+/* Card Component */
+.card {
+  border: 1px solid var(--color-slate-200);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.card h4 {
+  margin-top: 0;
+}
+
+.card ul {
+  list-style: disc inside;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.card ul li:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+/* Alert Components */
+.alert {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  align-items: flex-start;
+}
+
+.alert-info {
+  background-color: var(--color-indigo-50);
+  color: var(--color-indigo-800);
+}
+
+.alert-danger {
+  background-color: var(--color-red-50);
+  color: var(--color-red-800);
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.alert-icon svg {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.alert-info .alert-icon svg {
+  color: var(--color-indigo-400);
+}
+
+.alert-danger .alert-icon svg {
+  color: var(--color-red-400);
+}
+
+.alert-content {
+  margin-left: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.alert-content strong {
+  font-weight: 600;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-style: italic;
+  border-left: 4px solid var(--color-indigo-500);
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-600);
+}
+
+blockquote strong {
+  font-style: normal;
+  color: var(--color-slate-700);
+}
+
+/* Highlight Text */
+.highlight {
+  background-color: var(--color-yellow-200-t);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  color: var(--color-yellow-900);
+}
+
+/* Emphasis Text */
+.emphasis {
+  font-weight: 600;
+  color: var(--color-slate-700);
+}
+
+/* Footer - Summary Section */
+.page-footer {
+  background-color: var(--color-slate-100);
+  padding: 1.5rem;
+}
+
+.summary-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--color-indigo-500);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.summary-card > p:first-child {
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  color: var(--color-slate-700);
+}
+
+.summary-card > p:first-child strong {
+  color: var(--color-slate-800);
+}
+
+.summary-card h4 {
+  font-weight: 700;
+  color: var(--color-slate-800);
+  margin: 1rem 0 0.5rem 0;
+}
+
+.summary-card h4:first-of-type {
+  margin-top: 0;
+}
+
+.summary-card ul {
+  list-style: disc inside;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  color: var(--color-slate-600);
+}
+
+.summary-card ul li:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.summary-card ul strong {
+  color: var(--color-indigo-600);
+}
+
+.summary-card .note {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #64748b;
+  margin: 1rem 0 0 0;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .page-wrapper {
+    padding: 1.5rem;
+  }
+  .content-container {
+    border-radius: 1rem;
+  }
+  .page-header {
+    padding: 3rem;
+  }
+  .page-header h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .note-article,
+  .page-footer {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding: 2rem;
+  }
+  .note-section {
+    flex-direction: row;
+  }
+  .note-sidebar {
+    width: 33.333333%;
+    border-right: 2px solid var(--color-slate-200);
+    border-bottom: none;
+  }
+  .note-article {
+    width: 66.666667%;
+  }
+  .sidebar-sticky-wrapper {
+    padding: 2rem;
+  }
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .note-article,
+  .page-footer {
+    padding: 2.5rem;
+  }
+}
