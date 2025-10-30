@@ -866,12 +866,6 @@ blockquote strong {
   border: 1px solid var(--color-indigo-200);
   border-radius: 9999px;
   white-space: nowrap;
-  transition: all 0.2s;
-}
-
-.note-link:hover .tag {
-  background-color: var(--color-indigo-100);
-  border-color: var(--color-indigo-300);
 }
 
 /* Responsive Design */
