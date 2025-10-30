@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git restore:*)",
+      "Skill(cornell-notes)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
