@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cornell Notes - 笔记索引</title>
+    <title>Notebook - 笔记索引</title>
     <link rel="stylesheet" href="css/index.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css"
@@ -19,8 +19,8 @@
         <div class="content-container">
           <!-- Header -->
           <header class="page-header">
-            <h1>Cornell Notes</h1>
-            <p>Kevin's Cornell Notes Collection</p>
+            <h1>Notebook</h1>
+            <p>Kevin's Notes</p>
           </header>
 
           <!-- Filter and Sort Controls -->
@@ -77,7 +77,10 @@
                 class="note-item-row"
               >
                 <a :href="note.url" class="note-link">
-                  <span class="note-title">{{ note.title }}</span>
+                  <span class="note-title">
+                    {{ note.title }}
+                    <span v-if="note.isMarkdown" class="markdown-badge">MD</span>
+                  </span>
                   <div class="note-meta-row">
                     <span class="note-date">
                       <span class="date-full">{{ note.date }}</span>
@@ -102,16 +105,8 @@
           <!-- Footer -->
           <footer class="page-footer">
             <div class="summary-card">
-              <p><strong>About Cornell Notes</strong></p>
-              <p style="color: var(--color-slate-600); line-height: 1.6">
-                The Cornell Note-taking System is a systematic note-taking
-                method developed by Professor Walter Pauk of Cornell University.
-                This site showcases learning notes organized using the Cornell
-                method, covering various fields including technology, business,
-                and language learning.
-              </p>
               <p class="note">
-                Total {{ notes.length }} notes | Last updated: {{ lastUpdate }}
+                Last updated: {{ lastUpdate }}
               </p>
             </div>
           </footer>
@@ -176,19 +171,19 @@
               },
               {
                 id: 7,
-                title: "第一次工业革命",
-                url: "cornell/first-industrial-revolution-cornell-notes.html",
-                tags: ["工业革命", "历史", "技术变革", "社会变革"],
-                date: "2025-10-29 23:01",
-                dateOnly: "2025-10-29",
+                title: "美元如何控制世界",
+                url: "cornell/美元如何控制世界_Cornell笔记.html",
+                tags: ["金融", "美元体系", "国际政治", "经济学"],
+                date: "2025-10-30 00:00",
+                dateOnly: "2025-10-30",
               },
               {
                 id: 8,
-                title: "第二次工业革命（1870-1914）",
-                url: "cornell/second-industrial-revolution-cornell-notes.html",
-                tags: ["工业革命", "历史", "科技史", "电气化"],
-                date: "2025-10-29 23:02",
-                dateOnly: "2025-10-29",
+                title: "《被解放的普罗米修斯》核心洞见",
+                url: "cornell/cornell_notes_prometheus.html",
+                tags: ["工业革命", "经济史", "技术变革", "欧洲历史"],
+                date: "2025-10-30 15:30",
+                dateOnly: "2025-10-30",
               },
               {
                 id: 9,
@@ -208,6 +203,23 @@
               },
               {
                 id: 11,
+                title: "蜜雪冰城商业模式分析",
+                url: "cornell/mixue-cornell-notes.html",
+                tags: ["商业模式", "连锁经营", "品牌战略", "餐饮行业"],
+                date: "2025-10-30 16:00",
+                dateOnly: "2025-10-30",
+              },
+              {
+                id: 12,
+                title: "蜜雪冰城的商业密码与雪王 IP 战略",
+                url: "cornell/mixue-ip-strategy.html",
+                tags: ["IP营销", "品牌战略", "蜜雪冰城", "商业模式"],
+                date: "2025-10-31 16:45",
+                dateOnly: "2025-10-31",
+                isMarkdown: true,
+              },
+              {
+                id: 13,
                 title: "新加坡经济发展史笔记",
                 url: "cornell/新加坡经济发展史笔记.html",
                 tags: ["经济发展", "新加坡", "李光耀", "城市规划"],
