@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>AMD发展史详细笔记</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">🚀 AMD 发展史 - 从濒临破产到三千亿市值的传奇</h1>
+
+<hr>
+
+<h2 id="toc_1">📊 核心数据一览</h2>
+
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>8年股价涨幅</strong></td>
+<td>📈 <strong>超过100倍</strong></td>
+</tr>
+<tr>
+<td><strong>当前市值</strong></td>
+<td>💰 <strong>3000亿美元</strong> (超过英特尔近2倍)</td>
+</tr>
+<tr>
+<td><strong>最低谷市值</strong></td>
+<td>😱 不到20亿美元 (2014年)</td>
+</tr>
+<tr>
+<td><strong>CEO</strong></td>
+<td>👩‍💼 苏姿丰 (苏妈) - 2014年上任</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="toc_2">🌟 第一章：半导体行业的起源</h2>
+
+<h3 id="toc_3">🔬 贝尔实验室与晶体管的诞生</h3>
+
+<p><strong>1947年</strong> - 三位科学家制造出全世界第一个晶体管
+- 获得<strong>诺贝尔物理学奖</strong>
+- 其中一人：<strong>威廉·肖克利</strong> (技术大宗师,但管理能力差)</p>
+
+<h3 id="toc_4">🏢 仙童半导体 - 硅谷的起源</h3>
+
+<p><strong>1957年</strong> - &quot;八叛徒&quot;的出走</p>
+
+<blockquote>
+<p>八位顶尖科学家因不满肖克利的管理,集体离开创立 <strong>Fairchild Semiconductor (仙童半导体)</strong></p>
+</blockquote>
+
+<p><strong>关键地位:</strong>
+- ✨ 半导体领域的<strong>人才摇篮</strong>
+- 🌆 可以说是<strong>硅谷的起源</strong>
+- 📤 十年间创始人纷纷出走,孵化无数公司</p>
+
+<h3 id="toc_5">🎯 两大巨头的诞生</h3>
+
+<p><strong>1968年</strong> - 英特尔成立
+- 创始人: 诺伊斯 &amp; 摩尔 (仙童最后离开的两位)
+- 融资: 轻松融到 <code>250万美元</code>
+- 两年后即IPO上市</p>
+
+<p><strong>1969年</strong> - AMD成立<br>
+- 创始人: <strong>桑德斯</strong> (仙童销售主管)
+- 资金: 💸 <strong>第一笔投资竟来自英特尔CEO诺伊斯!</strong>
+- <strong>1972年</strong> 上市</p>
+
+<blockquote>
+<p>💡 <strong>核心观察:</strong> AMD和英特尔从诞生之日起就紧密纠葛在一起</p>
+</blockquote>
+
+<hr>
+
+<h2 id="toc_6">🚴 第二章: 早期战略 - &quot;Drafting&quot;跟车战术</h2>
+
+<h3 id="toc_7">🤝 第二供应商策略 (1970-1990s)</h3>
+
+<p><strong>背景:</strong>
+- 美国厂商采购芯片时要求<strong>第二供应商</strong>,防止被卡脖子
+- AMD经常作为英特尔的第二供应商</p>
+
+<p><strong>策略比喻: 骑行中的Drafting</strong>
+<code>
+领头羊(英特尔) → 减小风阻 → 跟随者(AMD)
+         ↓
+     双方都省力
+         ↓
+    形成小车队
+</code></p>
+
+<h3 id="toc_8">🎊 最成功的合作: IBM订单</h3>
+
+<p><strong>1980s</strong> - 拿下IBM个人电脑市场
+- 英特尔: <strong>x86架构</strong>成为CPU行业标准
+- 两家公司一起起飞
+- 英特尔 <strong>2000年市值</strong>: <code>2750亿美元</code> (全球第6)
+- AMD <strong>五年股价</strong>: 📈 翻了<strong>15倍</strong></p>
+
+<h3 id="toc_9">⚠️ 关系破裂</h3>
+
+<ul>
+<li>个人电脑市场逐渐饱和</li>
+<li>出现授权方面的诉讼</li>
+<li>AMD意识到: <strong>不能永远跟在英特尔后面!</strong></li>
+</ul>
+
+<hr>
+
+<h2 id="toc_10">🔥 第三章: 第一次逆袭 - 速龙时代 (1995-2006)</h2>
+
+<h3 id="toc_11">💪 自立门户的准备</h3>
+
+<p><strong>1995年</strong> - 战略转型
+- 大幅提高研发费用
+- 💰 花 <code>9亿美元</code> 收购 <strong>NexGen</strong> 半导体设计公司</p>
+
+<p><strong>关键人物:</strong>
+- <strong>达姆</strong> - NexGen的COO
+- 身份: 😱 <strong>奔腾处理器之父</strong> (刚从英特尔挖来!)
+- 鬼使神差加入AMD</p>
+
+<h3 id="toc_12">🚀 K系列架构横空出世</h3>
+
+<p><strong>1996年</strong> - 推出自研 <strong>K系列架构</strong></p>
+
+<p><strong>1999年6月</strong> - 搭载K7架构的 <strong>速龙 (Athlon)</strong> 发布</p>
+
+<p><strong>1999年</strong> - 不到10个月后
+- ⚡ 发布全球首款 <strong>&gt;1GHz</strong> 时钟频率处理器
+- 正面对抗英特尔 <strong>奔腾III</strong>
+- <strong>性价比</strong>领先一大截!</p>
+
+<h3 id="toc_13">📈 业绩大翻身</h3>
+
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>净利润</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1998</td>
+<td>❌ 亏损 <code>8900万美元</code></td>
+</tr>
+<tr>
+<td>1999</td>
+<td>❌ 亏损近 <code>1亿美元</code></td>
+</tr>
+<tr>
+<td><strong>2000</strong></td>
+<td>✅ <strong>盈利 <code>9.8亿美元</code></strong> 🎉</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>💬 &quot;这个速龙,它就是这么速度!&quot;</p>
+</blockquote>
+
+<h3 id="toc_14">🏆 巅峰时刻</h3>
+
+<p><strong>2003年</strong> - 推出搭载K8架构的首款 <strong>64位 x86处理器</strong></p>
+
+<p><strong>2006年市场份额:</strong>
+- 整体CPU市场: <strong>48.4%</strong> (几乎平分天下!)
+- 台式机: 📊 <strong>超过英特尔</strong></p>
+
+<hr>
+
+<h2 id="toc_15">💔 第四章: 收购ATI - 黑暗十年的开始 (2006-2014)</h2>
+
+<h3 id="toc_16">🎯 野心勃勃的战略</h3>
+
+<p><strong>核心思路:</strong></p>
+
+<blockquote>
+<p>融合CPU + GPU → 横跨两大芯片领域 → 干翻英特尔!</p>
+</blockquote>
+
+<p><strong>2000年市场格局:</strong>
+- <strong>CPU市场</strong>: 英特尔 vs AMD<br>
+- <strong>GPU市场</strong>: 英伟达 vs ATI</p>
+
+<h3 id="toc_17">🤔 收购对象的选择</h3>
+
+<p><strong>选项分析:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>市值</th>
+<th>分析</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>英伟达</strong></td>
+<td><code>75亿美元</code></td>
+<td>AMD才<code>86亿</code>,太接近,可能反被吞 😰</td>
+</tr>
+<tr>
+<td><strong>ATI</strong></td>
+<td><code>50亿美元</code></td>
+<td>有一定距离,收购可行 ✅</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_18">💸 豪赌式收购</h3>
+
+<p><strong>收购成本:</strong>
+- 现金: <code>18亿美元</code> (掏空全部)
+- 借债: <code>25亿美元</code><br>
+- 股票: <code>11亿美元</code>
+- <strong>总计:</strong> <code>54亿美元</code></p>
+
+<blockquote>
+<p>⚠️ <strong>豁了半条老命!</strong></p>
+</blockquote>
+
+<p><strong>结果:</strong>
+- 成为<strong>唯一</strong>在CPU和GPU两大市场都有相当份额的巨头
+- 听起来很厉害...对吧?</p>
+
+<h3 id="toc_19">😱 现实的残酷打击</h3>
+
+<p><strong>两年后的账面调整:</strong>
+- 商誉减记: <code>-26亿美元</code>
+- 意味着: 😭 <strong>花54亿买的东西,只值20多亿!</strong></p>
+
+<p><strong>问题分析:</strong>
+1. ✅ 战略方向<strong>非常正确</strong>
+2. ❌ 但<strong>买太贵了</strong>,严重影响现金流
+3. 🔥 同时英特尔开始反击</p>
+
+<h3 id="toc_20">⚔️ 英特尔的强势反击</h3>
+
+<p><strong>实力对比的真相:</strong>
+- AMD营收: <code>X</code>
+- 英特尔营收: <code>10X</code> (<strong>十倍差距!</strong>)
+- 英特尔市值: <code>30X</code> (<strong>三十倍差距!</strong>)</p>
+
+<p><strong>英特尔的&quot;Tick-Tock&quot;战术:</strong>
+<code>
+Tick年 → 更新芯片制程
+Tock年 → 更新处理器架构
+结果: 自己卷自己,一路领先
+</code></p>
+
+<p><strong>2006年</strong> - 收购ATI宣布后第3天
+- 英特尔发布 <strong>酷睿2处理器</strong> (全新Core微架构)
+- 性能 &amp; 能效比都非常出色
+- 重新拉开与AMD的差距</p>
+
+<h3 id="toc_21">📉 市场份额大崩盘</h3>
+
+<p><strong>CPU市场份额:</strong>
+- 高光时刻: <code>50%</code><br>
+- 跌至: <code>20%</code> 😢</p>
+
+<p><strong>服务器CPU市场份额:</strong>
+- 曾经: <code>30%</code>
+- 跌至: <strong><code>1%</code></strong> 😱</p>
+
+<p><strong>市值暴跌:</strong>
+- 跌至 <strong>不到20亿美元</strong>
+- 活下来都成问题!</p>
+
+<h3 id="toc_22">💔 绝望的自救</h3>
+
+<p><strong>2008年</strong> - 被迫出售晶圆厂
+- 拆分出 <strong>GlobalFoundries</strong>
+- 目的: 换钱 + 专注芯片设计</p>
+
+<p><strong>其他措施:</strong>
+- 不停裁员
+- 削减成本<br>
+- 😭 甚至<strong>卖掉总部大楼</strong> (换<code>1.6亿美元</code>)</p>
+
+<blockquote>
+<p>💬 <strong>华尔街分析师</strong>: &quot;AMD可能要退出历史舞台了&quot;</p>
+</blockquote>
+
+<hr>
+
+<h2 id="toc_23">👑 第五章: 苏妈时代 - 浴火重生 (2014-)</h2>
+
+<h3 id="toc_24">🌈 救世主降临</h3>
+
+<p><strong>2014年</strong> - <strong>苏姿丰 (Lisa Su)</strong> 出任CEO</p>
+
+<p><strong>背景:</strong>
+- 🎓 MIT电气工程<strong>博士</strong>
+- 💼 德州仪器、IBM工作经历
+- 🔧 芯片技术精英</p>
+
+<blockquote>
+<p>🎵 &quot;驾着七彩祥云,伴随着背景音乐从天而降&quot;</p>
+</blockquote>
+
+<p><strong>有趣观察:</strong>
+- 苏妈和老黄(英伟达CEO)都<strong>语速超快</strong> 📢
+- 正式场合还控制一下
+- 私下采访真的像<strong>机关枪</strong> 😄</p>
+
+<h3 id="toc_25">🎯 两大战略转变 (地狱级难度)</h3>
+
+<hr>
+
+<h4 id="toc_26">战略一: 🚀 高性能计算 (High Performance Computing)</h4>
+
+<p><strong>核心理念:</strong></p>
+
+<blockquote>
+<p>&quot;中低端没前途,利润率太低!&quot; - 苏妈</p>
+</blockquote>
+
+<p><strong>问题:</strong>
+- AMD之前主打<strong>性价比</strong>,集中在中低端
+- 虽然市场份额高,但<strong>利润率低</strong></p>
+
+<p><strong>解决方案:</strong>
+- 重新聚焦<strong>高性能芯片</strong>开发
+- 苏妈口头禅: <code>&quot;High performance computing&quot;</code></p>
+
+<hr>
+
+<h4 id="toc_27">战略二: 📈 拓展业务线</h4>
+
+<p><strong>2015年提出三大增长领域:</strong>
+1. 🎮 <strong>游戏</strong>
+2. 🏢 <strong>数据中心</strong><br>
+3. 🥽 <strong>沉浸式平台</strong></p>
+
+<blockquote>
+<p>💡 现在看来,这眼光真的<strong>很毒辣</strong>!</p>
+</blockquote>
+
+<hr>
+
+<h3 id="toc_28">⚡ Zen架构 - 反击的号角</h3>
+
+<p><strong>2016年底</strong> - 推出搭载 <strong>Zen架构</strong> 的锐龙芯片</p>
+
+<p><strong>技术特点:</strong>
+- 使用 <strong>Chiplet</strong> (小芯片集成)技术
+- 灵活性更高
+- 良率更高
+- 与英特尔制程/工艺<strong>完全不同</strong></p>
+
+<p><strong>性能目标 vs 实际:</strong>
+- 目标: 性能提升 <code>40%</code>
+- 市场质疑: &quot;天方夜谭,很难一步迈这么大&quot;
+- <strong>实际:</strong> 提升了 <code>52%</code>! 🎉</p>
+
+<p><strong>市场表现:</strong>
+- 第一代锐龙 vs 英特尔i7-6900K:
+  - ⚡ <strong>速度更快</strong>
+  - 💰 <strong>价格不到一半</strong></p>
+
+<h3 id="toc_29">🚀 Zen架构的进化</h3>
+
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>架构</th>
+<th>制程</th>
+<th>系列</th>
+<th>应用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>2017</td>
+<td>Zen</td>
+<td>-</td>
+<td>锐龙1000</td>
+<td>首发</td>
+</tr>
+<tr>
+<td>2019</td>
+<td><strong>Zen 2</strong></td>
+<td><code>7nm</code></td>
+<td>锐龙3000</td>
+<td>PS5, Xbox X/S, Steam Deck</td>
+</tr>
+<tr>
+<td>2020</td>
+<td><strong>Zen 3</strong></td>
+<td>-</td>
+<td>锐龙5000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2022</td>
+<td><strong>Zen 4</strong></td>
+<td><code>5nm</code></td>
+<td>锐龙7000</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>豪赌七纳米:</strong>
+- 2019年下注七纳米制程
+- 结果: <strong>一路起飞</strong> 🚀</p>
+
+<p><strong>桌面CPU市场份额:</strong>
+- 再次回到与英特尔<strong>势均力敌</strong>的态势!</p>
+
+<hr>
+
+<h2 id="toc_30">🎮 第六章: 游戏业务 - 黑暗中的救命稻草</h2>
+
+<h3 id="toc_31">💡 APU的诞生</h3>
+
+<p><strong>2011年</strong> - 推出 <strong>APU</strong> (Accelerated Processing Unit)
+- 在一块芯片上融合 <strong>CPU + GPU</strong>
+- 当时AMD黑暗时期的救命稻草</p>
+
+<p><strong>苏妈的贡献:</strong>
+- <strong>2012年</strong> 加入AMD总负责产品
+- 牵头让各大游戏机巨头选择AMD芯片</p>
+
+<p><strong>成果:</strong>
+- 每年带来 <code>2-3亿美元</code> 利润
+- 弥补个人电脑端的巨大亏损
+- <strong>让AMD活了下来!</strong></p>
+
+<p><strong>当前状态:</strong>
+- 🎯 <strong>垄断主机市场</strong>
+- 按部就班发展即可</p>
+
+<hr>
+
+<h2 id="toc_32">🏢 第七章: 数据中心 - 最大增长引擎</h2>
+
+<h3 id="toc_33">🎯 为什么是数据中心?</h3>
+
+<p><strong>市场特点:</strong>
+- 客户: 云服务商、超级计算机
+- 需求: 高端CPU + GPU
+- 之前完全是<strong>英特尔的天下</strong>
+- 这是<strong>英特尔的命根子</strong>!</p>
+
+<p><strong>企业预算分配:</strong>
+- 科技公司约 <code>50%</code> 预算放在服务器上
+- 对芯片要求: 高端、高能效比</p>
+
+<h3 id="toc_34">⚡ EPYC (霄龙) 横空出世</h3>
+
+<p><strong>基于Zen架构</strong> → 推出企业级 <strong>EPYC芯片</strong></p>
+
+<p><strong>经过几代优化:</strong>
+- 性能<strong>超越</strong>英特尔至强系列!</p>
+
+<h3 id="toc_35">💰 TCO优势 - 杀手锏</h3>
+
+<p><strong>TCO = Total Cost of Ownership (总拥有成本)</strong></p>
+
+<p><strong>企业关注点:</strong>
+<code>
+初期购买成本 (冰山一角)
+    +
+持续耗电成本
+    +
+维护成本
+    +  
+散热成本
+    ↓
+  TCO才是大头!
+</code></p>
+
+<p><strong>AMD的&quot;阴险&quot;操作:</strong>
+- 官网提供<strong>对比工具</strong>
+- 可以随意选AMD vs 英特尔芯片对比
+- 赤裸裸地<strong>拉踩</strong>!</p>
+
+<p><strong>对比结果:</strong>
+- 💰 价格: 便宜 <code>20%-50%</code>
+- 🔋 维护成本: 低 <code>10%-30%</code>
+- 对于年采购上万台服务器的企业: <strong>省几个亿!</strong></p>
+
+<blockquote>
+<p>🎤 AMD想说: &quot;随便拉出来一个芯片对比,我又便宜性能又好,耗电量又低,总成本又低!&quot;</p>
+</blockquote>
+
+<p><strong>合规性:</strong>
+- 英特尔没法告,说明数据真实
+- AMD有<strong>底气</strong>这么做!</p>
+
+<h3 id="toc_36">📊 市场渗透</h3>
+
+<p><strong>主要客户:</strong>
+- Amazon AWS
+- Microsoft Azure
+- Google Cloud<br>
+- IBM Cloud
+- 国内互联网企业 (采购比例很高)</p>
+
+<blockquote>
+<p>😄 &quot;什么时候刷4K视频有点卡了,就说明企业该加购服务器了&quot;</p>
+</blockquote>
+
+<hr>
+
+<h2 id="toc_37">💎 第八章: 收购赛灵思 - 490亿的大手笔</h2>
+
+<h3 id="toc_38">🎯 战略目标</h3>
+
+<p><strong>2020年</strong> - 收购芯片巨头 <strong>Xilinx (赛灵思)</strong></p>
+
+<p><strong>赛灵思是谁:</strong>
+- <strong>FPGA芯片</strong>领域头号玩家
+- FPGA = 可编程逻辑阵列
+- 应用: 电动汽车、火星车、通信基站等</p>
+
+<p><strong>AMD目的:</strong>
+- 大幅扩大业务范围
+- 进入新的芯片领域</p>
+
+<h3 id="toc_39">💡 财经小知识: 换股收购</h3>
+
+<p><strong>问题:</strong>
+- 收购价: <code>490亿美元</code>
+- AMD现金: 只有 <code>20-30亿美元</code></p>
+
+<p><strong>怎么办?</strong> → <strong>换股收购</strong>!</p>
+
+<p><strong>操作方式:</strong>
+<code>
+赛灵思股东
+    ↓
+换取 1.7234股 AMD股票
+    ↓
+赛灵思占合并后公司 26%股份
+</code></p>
+
+<p><strong>收购价值的神奇变化:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>时间点</th>
+<th>AMD股价</th>
+<th>赛灵思估值</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>宣布时</td>
+<td>基准</td>
+<td><code>350亿美元</code></td>
+</tr>
+<tr>
+<td>完成时 (2022.2.14)</td>
+<td>+40%</td>
+<td><code>490亿美元</code> 🚀</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>💰 <strong>空手套白狼</strong>: 
+- 因为AMD股票狂涨
+- 自己的肉变得像&quot;唐僧肉&quot;一样值钱
+- 割点肉就能换东西了!</p>
+</blockquote>
+
+<p><strong>结果:</strong>
+- 芯片史上<strong>最大收购</strong>
+- 收购价在一年多内暴涨 <code>140亿美元</code>!</p>
+
+<hr>
+
+<h2 id="toc_40">🤖 第九章: AI时代的爆发 (2023-)</h2>
+
+<h3 id="toc_41">🌊 二级助推</h3>
+
+<p><strong>2023 = AI元年</strong></p>
+
+<p><strong>AMD的优势:</strong>
+- 当年收购ATI差点把自己搞死
+- 终于迎来<strong>丰收</strong>!
+- 市场上<strong>唯二</strong>的独立显卡公司</p>
+
+<h3 id="toc_42">🚀 AI芯片表现</h3>
+
+<p><strong>产品发布:</strong>
+- 一系列AI芯片推出
+- 立即被 <strong>Microsoft, Meta, OpenAI</strong> 哄抢!</p>
+
+<p><strong>业绩暴涨:</strong>
+- 2023 Q4数据中心业务: 环比暴涨 <code>43%</code>
+- 达到 <code>23亿美元</code>
+- <strong>超过游戏业务</strong>
+- 成为AMD <strong>第一收入来源</strong>!</p>
+
+<p><strong>消费端:</strong>
+- 锐龙系列全部整上 <strong>AI引擎NPU</strong>
+- 性能比上一代提升 <code>60%</code></p>
+
+<blockquote>
+<p>🔥 <strong>AMD现在: All in AI!</strong></p>
+</blockquote>
+
+<h3 id="toc_43">📈 股价与市值</h3>
+
+<p><strong>8年成绩单:</strong>
+- 股价: 翻了 <strong>超过100倍</strong> 📈
+- 市值: <code>3000亿美元</code>
+- 🏆 <strong>接近英特尔的2倍</strong>
+- 超过丰田、超过茅台!</p>
+
+<p><strong>首次真正领先:</strong>
+- 虽然英特尔营收、市场份额仍是老大
+- 但AMD的<strong>潜力</strong>和<strong>增长势头</strong>
+- 头一次真正把英特尔甩开了!</p>
+
+<hr>
+
+<h2 id="toc_44">⚔️ 第十章: 竞争格局与未来</h2>
+
+<h3 id="toc_45">🆚 AMD vs 英伟达</h3>
+
+<p><strong>与英特尔的区别:</strong>
+- 英特尔竞争: <strong>零和博弈</strong> (抢市场、抢客户)
+- 英伟达竞争: <strong>蓝海市场</strong></p>
+
+<p><strong>市场现状:</strong>
+- AI领域未来3-5年潜在市场: <code>1500亿美元/年</code>
+- 全球AI产能: 只能供应 <strong>&lt;20%</strong> 需求
+- <strong>需求远大于供给</strong>!</p>
+
+<blockquote>
+<p>💬 苏妈: &quot;AMD不用非得击败英伟达,才能在显卡市场取得好成绩&quot;</p>
+</blockquote>
+
+<p><strong>实际情况:</strong>
+- 只要产品够好,客户<strong>大把排队</strong>
+- &quot;管你是苏妈、老黄、还是隔壁老王,只要好用我都要!&quot;
+- AMD和英伟达更像是<strong>和自己赛跑,和技术赛跑</strong></p>
+
+<h3 id="toc_46">🔧 英特尔的反击</h3>
+
+<p><strong>2021年</strong> - 换新CEO,选择不同路线</p>
+
+<p><strong>战略:</strong>
+- 把宝押在 <strong>芯片制造</strong> 上
+- 狂砸 <code>200亿美元</code> 新建两个晶圆厂
+- 目标: 2027年追上台积电工艺</p>
+
+<blockquote>
+<p>⚠️ <strong>AMD和英特尔的战争,还远远没有结束!</strong></p>
+</blockquote>
+
+<hr>
+
+<h2 id="toc_47">💭 第十一章: 深度思考</h2>
+
+<h3 id="toc_48">🎲 芯片行业的本质</h3>
+
+<p><strong>表面:</strong>
+- 更新迭代非常快
+- 一款明星产品就能扭转颓势</p>
+
+<p><strong>真相:</strong>
+- 每次突破背后都是 <strong>至少3-5年甚至更长的投入</strong>
+- 这是一场<strong>豪赌</strong>!</p>
+
+<h3 id="toc_49">⚡ 永不停歇的齿轮</h3>
+
+<p><strong>芯片企业的挑战:</strong></p>
+
+<ol>
+<li><strong>短期:</strong> 推动眼前产品的研发、优化、销售</li>
+<li><strong>长期:</strong> 判断下一个五年怎么走</li>
+<li><strong>持续:</strong> 不间断投入大量成本去押注</li>
+</ol>
+
+<p><strong>与其他行业对比:</strong>
+<code>
+其他行业: 一次赌成 → 舒服领先一段时间 ✨
+芯片行业: 再成功 → 领先3-5年 → 新架构出现 → 拍在沙滩上 😱
+</code></p>
+
+<p><strong>残酷现实:</strong>
+- <strong>不能吃老本</strong>
+- 每5年拿出<strong>一半身家</strong>再去下注
+- 豪赌未来5-10年</p>
+
+<blockquote>
+<p>👴 &quot;看看老黄和苏妈头发花白的速度,就知道得费多少脑子,承受多大压力&quot;</p>
+</blockquote>
+
+<h3 id="toc_50">🔄 科技进步的齿轮</h3>
+
+<p><strong>芯片领域:</strong>
+- 科技滚动进步的齿轮
+- 被<strong>淋漓尽致地放大展现</strong></p>
+
+<p><strong>当下的赢家:</strong>
+- 只是<strong>暂时的</strong>
+- 英特尔砸钱建厂
+- AMD all in AI + 收购赛灵思
+- 这些都是<strong>下一场的赌注</strong>
+- 都是<strong>下一轮交锋的序幕</strong></p>
+
+<hr>
+
+<h2 id="toc_51">📚 关键时间线总结</h2>
+
+<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>事件</th>
+<th>意义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>1947</strong></td>
+<td>贝尔实验室发明晶体管</td>
+<td>半导体时代开启</td>
+</tr>
+<tr>
+<td><strong>1957</strong></td>
+<td>仙童半导体成立</td>
+<td>硅谷起源</td>
+</tr>
+<tr>
+<td><strong>1968</strong></td>
+<td>英特尔成立</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>1969</strong></td>
+<td><strong>AMD成立</strong></td>
+<td>传奇开始</td>
+</tr>
+<tr>
+<td><strong>1999</strong></td>
+<td>速龙1GHz处理器</td>
+<td>第一次逆袭</td>
+</tr>
+<tr>
+<td><strong>2006</strong></td>
+<td>市场份额48.4%</td>
+<td>巅峰时刻</td>
+</tr>
+<tr>
+<td><strong>2006</strong></td>
+<td>收购ATI (54亿)</td>
+<td>黑暗十年开始</td>
+</tr>
+<tr>
+<td><strong>2008</strong></td>
+<td>出售晶圆厂</td>
+<td>濒临破产</td>
+</tr>
+<tr>
+<td><strong>2014</strong></td>
+<td><strong>苏妈上任</strong></td>
+<td>转折点</td>
+</tr>
+<tr>
+<td><strong>2016</strong></td>
+<td>Zen架构发布</td>
+<td>反击号角</td>
+</tr>
+<tr>
+<td><strong>2020</strong></td>
+<td>收购赛灵思 (490亿)</td>
+<td>业务扩张</td>
+</tr>
+<tr>
+<td><strong>2023</strong></td>
+<td>AI业务爆发</td>
+<td>二级助推</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="toc_52">🎯 核心战略总结</h2>
+
+<h3 id="toc_53">✅ 成功因素</h3>
+
+<ol>
+<li><strong>高性能计算</strong> - 不走性价比老路</li>
+<li><strong>Zen架构</strong> - 技术根本性突破</li>
+<li><strong>业务多元化</strong> - 游戏、数据中心、AI</li>
+<li><strong>战略收购</strong> - ATI(虽然痛苦但必要)、赛灵思</li>
+<li><strong>出售制造</strong> - 专注设计,灵活合作</li>
+<li><strong>长期主义</strong> - 每次都是3-5年的豪赌</li>
+</ol>
+
+<h3 id="toc_54">❌ 教训</h3>
+
+<ol>
+<li><strong>不能为了收购而收购</strong> - 买ATI太贵了</li>
+<li><strong>现金流管理</strong> - 差点被债务压垮</li>
+<li><strong>不能只依赖中低端</strong> - 利润率太低</li>
+<li><strong>制造和设计分离</strong> - 更灵活高效</li>
+</ol>
+
+<hr>
+
+<h2 id="toc_55">💡 金句集锦</h2>
+
+<blockquote>
+<p>🚴 &quot;AMD的早期策略就像骑行中的Drafting - 跟在领头羊后面,减小风阻&quot;</p>
+
+<p>⚡ &quot;这个速龙,它就是这么速度!&quot; (2000年业绩大翻身)</p>
+
+<p>😱 &quot;豁了半条老命!&quot; (收购ATI)</p>
+
+<p>🌈 &quot;驾着七彩祥云,伴随着背景音乐从天而降&quot; (苏妈上任)</p>
+
+<p>💰 &quot;空手套白狼 - 自己的肉变得像唐僧肉一样值钱了&quot;</p>
+
+<p>🎤 &quot;High Performance Computing&quot; (苏妈口头禅)</p>
+
+<p>🎯 &quot;Number One Strategic Priority&quot; (数据中心是头号战略阵地)</p>
+
+<p>🔥 &quot;AMD不用非得击败英伟达,才能在显卡市场取得好成绩&quot;</p>
+
+<p>⚔️ &quot;AMD确实得击败英特尔,才能在CPU市场取得好成绩&quot;</p>
+</blockquote>
+
+<hr>
+
+<h2 id="toc_56">📊 与竞争对手对比</h2>
+
+<h3 id="toc_57">AMD vs 英特尔</h3>
+
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>AMD</th>
+<th>英特尔</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>营收</strong> (2006)</td>
+<td>X</td>
+<td>10X</td>
+</tr>
+<tr>
+<td><strong>市值</strong> (2006)</td>
+<td>X</td>
+<td>30X</td>
+</tr>
+<tr>
+<td><strong>市值</strong> (2024)</td>
+<td><code>3000亿</code></td>
+<td><code>1500亿</code></td>
+</tr>
+<tr>
+<td><strong>制造</strong></td>
+<td>外包台积电 ✅</td>
+<td>自己生产 (曾卡住)</td>
+</tr>
+<tr>
+<td><strong>市场定位</strong></td>
+<td>曾经中低端 → 现在高端</td>
+<td>一直高端</td>
+</tr>
+<tr>
+<td><strong>战略</strong></td>
+<td>All in AI</td>
+<td>砸钱建厂</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_58">AMD vs 英伟达</h3>
+
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>关系</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>GPU竞争</strong></td>
+<td>蓝海市场,不是零和博弈</td>
+</tr>
+<tr>
+<td><strong>市场需求</strong></td>
+<td>远大于供给 (80%缺口)</td>
+</tr>
+<tr>
+<td><strong>竞争本质</strong></td>
+<td>和自己赛跑,和技术赛跑</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="toc_59">🎬 结语</h2>
+
+<p><strong>AMD的故事告诉我们:</strong></p>
+
+<ol>
+<li>💪 <strong>永不放弃</strong> - 从濒临破产到3000亿市值</li>
+<li>🎯 <strong>战略为王</strong> - 高性能计算 + 业务拓展</li>
+<li>🔬 <strong>技术是根本</strong> - Zen架构改变命运<br></li>
+<li>👩‍💼 <strong>领导力</strong> - 苏妈的两大战略转变</li>
+<li>⏰ <strong>长期主义</strong> - 每次突破都是3-5年的豪赌</li>
+<li>🌊 <strong>把握时代</strong> - AI浪潮的二级助推</li>
+</ol>
+
+<p><strong>最后的思考:</strong></p>
+
+<blockquote>
+<p>科技滚动进步的齿轮,在芯片领域被淋漓尽致地放大展现。当下的赢家只是暂时的,AMD、英特尔、英伟达的下一轮交锋已经开始...</p>
+</blockquote>
+
+<hr>
+
+<p><strong>整理时间:</strong> 2025年11月<br>
+<strong>来源:</strong> AMD发展史讲解视频<br>
+<strong>核心人物:</strong> 苏姿丰 (Lisa Su) - AMD CEO</p>
+
+<hr>
+
+<p>🔥 <strong>Remember:</strong> 
+- 这是一场永不停歇的技术赛跑
+- 每一代产品背后都是数年的豪赌
+- 今天的领先者,明天可能被拍在沙滩上</p>
+
+<p>💡 <strong>AMD的核心竞争力:</strong> 不是短期的产品优势,而是<strong>持续豪赌未来的勇气和能力</strong>!</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+
+</body>
+
+</html>
